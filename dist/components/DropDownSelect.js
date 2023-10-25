@@ -34,8 +34,8 @@ function DropDownSelect(props) {
 
   // select previous or next element with keyboard
   const handleKeyDownSelect = e => {
-    e.preventDefault();
     if (e.key === "ArrowUp") {
+      e.preventDefault();
       const select = document.getElementById(props.id + "-select");
       if (select.children !== undefined) {
         var arrayHTMLUp = Array.from(select.children);
@@ -47,6 +47,7 @@ function DropDownSelect(props) {
       }
     }
     if (e.key === "ArrowDown") {
+      e.preventDefault();
       const select = document.getElementById(props.id + "-select");
       if (select.children !== undefined) {
         var arrayHTMLDown = Array.from(select.children);
