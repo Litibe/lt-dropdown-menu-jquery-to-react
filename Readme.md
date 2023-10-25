@@ -1,6 +1,6 @@
 # lt-dropdown-menu-jquery-to-react
 
-Get a conversion from jQuery DropDown Menu to React ! 
+Get a conversion from jQuery DropDown Menu to React (JSX) ! 
 https://github.com/jquery/jquery-ui/blob/master/ui/widgets/selectmenu.js
 ## Installation
 
@@ -26,7 +26,7 @@ import { DropDownSelect } from 'lt-dropdown-menu-jquery-to-react';
 
 ### Using promises:
 
-```js
+```jsx
 <DropDownSelect
     className={"form-group"}
     id={"state"}
