@@ -1,17 +1,32 @@
 {
     "name": "lt-dropdown-menu-jquery-to-react",
-    "version": "1.0.1",
+    "version": "1.0.4",
     "description": "",
+    "type": "module",
     "homepage": "https://github.com/Litibe/lt-dropdown-menu-jquery-to-react",
     "repository": {
         "type": "git",
         "url": "https://github.com/Litibe/lt-dropdown-menu-jquery-to-react.git"
     },
-    "main": "index.js",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "files": [
+        "dist",
+        "README.md"
+    ],
     "dependencies": {
+        "@babel/polyfill": "^7.12.1",
         "react": "^17.0.0"
+    },
+    "scripts": {
+        "build": "rm -rf dist && NODE_ENV=production babel --out-dir dist --copy-files"
     },
     "keywords": [],
     "author": "LiTiBe",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/cli": "^7.23.0",
+        "@babel/core": "^7.23.2",
+        "@babel/preset-env": "^7.23.2"
+    }
 }
