@@ -12,12 +12,9 @@ npm install lt-dropdown-menu-jquery-to-react
 yarn add lt-dropdown-menu-jquery-to-react
 ```
 
-## Usage
+## Usage into React
 
 ```js
-# using require
-const { DropDownSelect } = require('lt-dropdown-menu-jquery-to-react');
-
 # using import
 import { DropDownSelect } from 'lt-dropdown-menu-jquery-to-react';
 ```
