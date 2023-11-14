@@ -8,11 +8,43 @@ import "./css/button.css";
 import "./css/selectmenu.css";
 import "./css/menu.css";
 
+/**
+ * Represents a DropDownSelect menu component (jquery converted).
+ * @date 14/11/2023 - 14:45:23
+ *
+ * @param {string} className: Apply class Css for component
+ * @param {string} id required: id to search into DOM result of the select tag.
+ * @param {string} title: Title of the select menu.
+ * @param {array} dataArray: Array of data to display into the select menu  (ex : [{"name" : "x", "value": "y"},{"name" : "a", "value": "b"} ]).
+ * @param {string} keyToWatch: Key to watch into the dataArray to display.
+ * @param {string} keyToValue: Key to watch into the dataArray to get the value.
+ * @param {string} keyToValueDefaultValue: Key to watch into the dataArray to get the default value.
+ * @returns {JSX.Element}
+ *
+ *  @example
+ * <DropDownSelect
+ *     className="ui-widget ui-widget-content"
+ *    id="select"
+ *   title="Select a value"
+ *  dataArray={[
+ *     { name: "Option 1", value: "1" },
+ *    { name: "Option 2", value: "2" },
+ *   { name: "Option 3", value: "3" },
+ * ]}
+ * keyToWatch="name"
+ * keyToValue="value"
+ * keyToValueDefaultValue="2"
+ * />
+ */
 export default function DropDownSelect(props) {
+    // state to manage the selected value by user
     const [selectedName, setSelectedName] = useState("");
     const [selectedValue, setSelectedValue] = useState("");
+    // state to manage the item over by user
     const [onOverItemId, setOnOverItemIdd] = useState(undefined);
+    // state to manage the open menu
     const [openMenu, setOpenMenu] = useState(false);
+    // state to generate the default value on load component, depend props element
     useEffect(() => {
         if (props.keyToValueDefaultValue !== undefined) {
             props.dataArray !== undefined &&
@@ -66,7 +98,12 @@ export default function DropDownSelect(props) {
             }
         }
     };
-
+    // return the component with the data array - format JSX
+    // A label is added to the select tag to be accessible by screen reader
+    // A select tag is added to extract the value of the selected item by user (not visible) but extractable by @param id
+    // A span tag is added to display the selected item by user
+    // A div tag is added to display the list of items when the user click on the span tag (state openMenu is true)
+    // even class CSS are added to manage the display of the component as jquery component
     return (
         <div className={props.className}>
             <label htmlFor={props.id + "-select"}>{props.title}</label>
